@@ -1,0 +1,1 @@
+var swch = document.getElementsByClassName('darkmode')

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link id='lnk' rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="switch.css">
     <title>Joia</title>
 </head>
 <body>
+    <div class="headbar">
+    </div>
     <div id="header">
         <div id="image">
-            <img src="images/whitelogo.png" width="150px" alt="Logitipo de la empresa">
+            <img src="images/whitelogo.png" width="150px" alt="Logitipo de la empresa" id='imgLogo'>
         </div>
         <ul id="options">
             <li><a href="#">HOME</a></li>
@@ -18,7 +21,23 @@
         </ul>
     </div>
     <div class="content">
-        <iframe src="https://open.spotify.com/embed/track/38gOzjDKr610VPy1ReBaKq" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
+    <script type='text/javascript'>
+        var state = 'dark'
+        function darkmode(){
+            var link = document.getElementById("lnk"); //Fetch the link by its ID
+            var logo = document.getElementById('imgLogo');
+            if(state == 'dark'){
+                link.setAttribute("href", "style.css");
+                logo.setAttribute('src','images/bluelogo.png')
+                state = 'light'
+            }else {
+                link.setAttribute("href", "darkmode.css");
+                logo.setAttribute('src','images/whitelogo.png')
+                state = 'dark'
+            }
+        }        
+        
+    </script>
 </body>
 </html>
