@@ -3,39 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id='lnk' rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="style.css">
+    <link id='lnk' rel="stylesheet" href="lightmode.css">
     <link rel="stylesheet" href="switch.css">
     <title>Joia</title>
 </head>
 <body>
-    <div class="headbar">
-    </div>
     <div id="header">
         <div id="image">
-            <img src="images/whitelogo.png" width="150px" alt="Logitipo de la empresa" id='imgLogo'>
+            <img src="images/whitelogo.png" width="100px" alt="Logitipo de la empresa" id='imgLogo'>
         </div>
         <ul id="options">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#home">ABOUT</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">INICIO</a></li>
+            <li><a href="#home">QUIÉN SOY</a></li>
+            <li><a href="#faq">MÚSICA</a></li>
         </ul>
     </div>
-    <div class="content">
+    <div class="imageContent">
+        <img id='imagenFull' src="images/sky.jpg" alt="Noche Estrellada">
+        <div class="imageTitle">Sobre Mi</div>
+        <div class="imagetext">Hey, mi nombre es Joia y me gusta hacer musica.</div>
     </div>
-    <script type='text/javascript'>
-        var state = 'dark'
+    <script src="scripts/cookies.js"></script>
+    <script type='text/javascript'> 
+        checkCookie();
+        var state = getCookie('state')
+        console.log(state)
         function darkmode(){
             var link = document.getElementById("lnk"); //Fetch the link by its ID
             var logo = document.getElementById('imgLogo');
+            var imagenfull = document.getElementById('imagenFull');
+
             if(state == 'dark'){
-                link.setAttribute("href", "style.css");
-                logo.setAttribute('src','images/bluelogo.png')
-                state = 'light'
+                link.setAttribute("href", "lightmode.css");
+                logo.setAttribute('src','images/whitelogo.png')
+                imagenfull.setAttribute('src','images/stars.jpg')
+                document.cookie = "state = 'light'";
             }else {
                 link.setAttribute("href", "darkmode.css");
-                logo.setAttribute('src','images/whitelogo.png')
-                state = 'dark'
+                logo.setAttribute('src','images/bluelogo.png')
+                imagenfull.setAttribute('src','images/sky.jpg')
+                document.cookie = "state = 'dark'";
             }
+            location.reload()
         }        
         
     </script>
